@@ -5,6 +5,6 @@ const api = require('./api/router');
 var app = express();
 const port = 4040;
 
-app.use(bodyParser);
+app.use(bodyParser.json());
 api.routing(app);
 app.listen(port, () => console.log(`Server listen on ${port}`));
