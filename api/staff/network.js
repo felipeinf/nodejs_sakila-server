@@ -13,3 +13,5 @@ router.get('/', async function (req, res) {
     response.error(req, res, 'Unexpected Error', 500, error);
   }
 }); 
+
+module.exports = router;
