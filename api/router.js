@@ -1,5 +1,7 @@
+const staff = require('./staff/network');
+
 function routing(server) {
-  server.use();
+  server.use('/staff', staff);
 }
 
 module.exports = {
