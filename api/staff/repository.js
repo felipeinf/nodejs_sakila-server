@@ -1,26 +1,16 @@
-const mysql = require('mysql');
-const util = require('util');
-
-var connectParams = require('../environments/sakila-params')
-var sakilaConnection = mysql.createConnection(connectParams);
-const query = util.promisify(sakilaConnection.query).bind(sakilaConnection);
+const database = require('../mysql');
 
 async function getStaff(){
+  const db = database.setDatabase();
+  
   try {
-    await sakilaConnection.connect();
-    const results = await query("SELECT * FROM staff");
-
-    sakilaConnection.destroy();
-    
-    return Promise.resolve(results.map((row)=>{
-      var employee = {...row};
-      employee.picture = null;
-      return employee;
-    }));
+    return await db.query("SELECT * FROM staff");
   } 
   catch (error) {
-    sakilaConnection.destroy();
-    return Promise.reject('Error');
+    return Promise.reject(error);    
+  }
+  finally{
+    await db.disconnect();
   }
 }
 
