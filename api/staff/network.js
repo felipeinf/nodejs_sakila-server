@@ -6,7 +6,7 @@ const controller = require('./controller');
 router.get('/', async function (req, res) {
   try {
     const result = await controller.getStaff();      
-    response.succes(req, res, result);
+    response.success(req, res, result);
   }
   catch (error) {
     console.error(error);
@@ -19,7 +19,7 @@ router.post('/', async function (req, res) {
 
   try {
     const result = await controller.addStaffMember(body);    
-    response.succes(req, res, result, 201);
+    response.success(req, res, result, 201);
   } 
   catch (error) { 
     console.error(error);
@@ -33,7 +33,7 @@ router.patch('/:id', async function (req, res) {
 
   try {
       const result = await controller.updateStaffMember(id, body);
-      response.succes(req, res, result, 200);
+      response.success(req, res, result, 200);
   } 
   catch (error) { 
       console.error(error);
@@ -46,7 +46,7 @@ router.delete('/:id', async function (req, res) {
 
   try {
       const result = await controller.deleteStaffMember(id);
-      response.succes(req, res, result, 200);
+      response.success(req, res, result, 200);
   } 
   catch (error) { 
       console.error(error);
