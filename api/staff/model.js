@@ -1,4 +1,5 @@
 exports.create = (staff) => ({
+  "staff_id": staff.staff_id,
   "first_name": staff.first_name,
   "last_name": staff.last_name,
   "address": {
