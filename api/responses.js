@@ -1,4 +1,5 @@
 exports.success = function (req, res, message, status) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.status(status || 200).send({
         error: '',
         body: message
