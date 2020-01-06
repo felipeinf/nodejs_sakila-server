@@ -10,7 +10,7 @@ exports.create = (staff) => ({
   },
   "picture": null,
   "email": staff.email,
-  "store": staff.store_id,
+  "store_id": staff.store_id,
   "active": staff.active,
   "username": staff.username,
   "password": staff.password,
