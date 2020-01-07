@@ -4,8 +4,8 @@ function getStaff(){
   return repository.getStaff();
 }
 
-function getStaffMemberById(staffMemberId){
-  return repository.getStaffMemberById(staffMemberId);
+function getStaffMemberById(){
+  return repository.getStaffMemberById();
 }
 
 function addStaffMember(staffMember){

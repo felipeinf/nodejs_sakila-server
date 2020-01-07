@@ -4,13 +4,6 @@ function getStaff(){
   return repository.getStaff();
 }
 
-function getStaffMemberById(staffMemberId){
-  return repository.getStaffMemberById(staffMemberId);
-}
-
-function addStaffMember(staffMember){
-  return repository.addStaffMember(staffMember);
-}
 function addStaffMember(staffMember){
   return repository.addStaffMember(staffMember);
 }
@@ -25,7 +18,6 @@ function updateStaffMember(staffMemberId, staffMember){
 
 module.exports = {
   getStaff,
-  getStaffMemberById,
   addStaffMember,
   deleteStaffMember,
   updateStaffMember

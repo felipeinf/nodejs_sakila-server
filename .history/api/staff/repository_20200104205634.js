@@ -22,28 +22,6 @@ async function getStaff(){
   }
 }
 
-async function getStaffMemberById(staffMemberId){
-  const db = database.setDatabase();
-  
-  try {
-    const result = await db.query(`
-      SELECT staff_id, first_name, last_name, staff.address_id, address.address, city.city, country.country, picture, email, store_id, active, username, password, staff.last_update  FROM staff
-      JOIN address ON address.address_id = staff.address_id
-      JOIN city ON city.city_id = address.city_id
-      JOIN country ON country.country_id = city.country_id
-      WHERE staff.staff_id = ${staffMemberId}
-    `);
-
-    return Promise.resolve(result.map((staffMember) => model.create(staffMember)));
-  } 
-  catch (error) {
-    return Promise.reject(error);    
-  }
-  finally{
-    await db.disconnect();
-  }
-}
-
 async function addStaffMember(staffMember){
   const db = database.setDatabase();
   const properties = new Map(Object.entries(staffMember));
@@ -125,7 +103,6 @@ async function updateStaffMember(staffMemberId, staffMember){
 
 module.exports = {
   getStaff,
-  getStaffMemberById,
   addStaffMember,
   deleteStaffMember,
   updateStaffMember

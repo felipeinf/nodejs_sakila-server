@@ -14,19 +14,6 @@ router.get('/', async function (req, res) {
   }
 }); 
 
-router.get('/:id', async function (req, res) {
-  const id = req.params.id;
-
-  try {
-    const result = await controller.getStaffMemberById(id);      
-    response.success(req, res, result);
-  }
-  catch (error) {
-    console.error(error);
-    response.error(req, res, 'Invalid information', 500, 'Error in controller', error);
-  }
-}); 
-
 router.post('/', async function (req, res) {
   const body = req.body;
 

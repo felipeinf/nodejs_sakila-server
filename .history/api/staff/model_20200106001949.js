@@ -8,7 +8,7 @@ exports.create = (staff) => ({
     "city": staff.city,
     "country": staff.country
   },
-  "picture": staff.picture,
+  "picture": null,
   "email": staff.email,
   "store_id": staff.store_id,
   "active": staff.active,
