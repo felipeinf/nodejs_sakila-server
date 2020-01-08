@@ -34,7 +34,7 @@ async function getStaffMemberById(staffMemberId){
       WHERE staff.staff_id = ${staffMemberId}
     `);
 
-    return Promise.resolve(result.map((staffMember) => model.create(staffMember)));
+    return Promise.resolve(model.create(result.shift()));
   } 
   catch (error) {
     return Promise.reject(error);    
@@ -83,7 +83,7 @@ async function deleteStaffMember(staffMemberId){
       DELETE FROM staff WHERE staff_id = ${staffMemberId}
     `);
     
-    return Promise.resolve(result.map((staffMember) => model.create(staffMember)));
+    return Promise.resolve(model.create(result.shift()));
   } 
   catch (error) {
     return Promise.reject(error);    
@@ -113,7 +113,7 @@ async function updateStaffMember(staffMemberId, staffMember){
       WHERE staff_id = ${staffMemberId}
     `);
 
-    return Promise.resolve(model.create(...result));
+    return Promise.resolve(model.create(result.shift()));
   } 
   catch (error) {
     return Promise.reject(error);    
