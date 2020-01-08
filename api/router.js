@@ -5,6 +5,15 @@ const address = require('./address/network');
 const store = require('./store/network');
 
 function routing(server) {
+  //Access control
+  server.use((req, res, next) => {
+    res.header({
+      'Access-Control-Allow-Methods': req.headers['access-control-request-method'],
+      'Access-Control-Allow-Origin': req.headers['origin']
+    });
+    next();
+  });
+
   server.use('/staff', staff);
   server.use('/store', store);
   server.use('/address', address);
